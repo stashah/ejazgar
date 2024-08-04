@@ -1,0 +1,107 @@
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #5d8cf7;
+    border-radius: 4px;
+    
+    
+  }
+  select.form-control{
+      width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #5d8cf7;
+    border-radius: 4px;
+    color:black;
+    
+  }
+  
+  
+  .from-control select option{
+       width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #5d8cf7;
+    border-radius: 4px;
+    
+  }
+  .form-control{
+       width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #5d8cf7;
+    border-radius: 4px;
+    
+    
+  }
+   
+  .card-body{
+      border: 2px solid #5d8cf7;
+  }
+  .card-header{
+      background-color:#4d83ffbd;
+      color: white;
+      text-align: center;
+  }
+  .btn{
+      float:right;
+  }
+  .form-group label{
+      font-weight:bold;
+  }
+  .card-body{
+      background-color:#ffc10080;
+  }
+  .menu-title{
+      font-weight:bold;
+      color:white;
+  }
+  .content-wrapper {
+      background: #aeb6bf;
+  }
+  .footer {
+      background: #ffc100;
+  }
+  .navbar .navbar-menu-wrapper {
+      background: #e6af03;
+      #ffc100
+  }
+  .sidebar {
+      background: #cd888b;
+      border: 1px solid #cd888b;
+  }
+  .menu-title{
+      
+  }
+  .sidebar .nav:not(.sub-menu) > .nav-item {
+      border-bottom: 1px solid #ffc100;
+      margin-top: 0;
+  }
+  .navbar .navbar-brand-wrapper {
+      background: #f1b90b;
+      border: 1px solid #ffc100;
+  }
+  td{
+      background-color:white;
+  }
+  tr{
+      background-color:white;
+  }
+  tbody{
+      background-color:white;
+  }
+  table{
+      width:100%;
+  }
+  thead{
+      background-color:#4a75f1;
+  }
+  th{
+      background-color:#4a75f1;
+  }
+  

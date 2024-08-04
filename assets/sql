@@ -1,0 +1,423 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jan 05, 2021 at 03:48 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `leasesoftware`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories_ls`
+--
+
+CREATE TABLE `categories_ls` (
+  `cid` int(11) NOT NULL,
+  `cname` text NOT NULL,
+  `caddedby` int(11) NOT NULL,
+  `caddedon` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categories_ls`
+--
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_ls`
+--
+
+CREATE TABLE `customer_ls` (
+  `cust_id` int(20) NOT NULL,
+  `cust_cnic` varchar(20) NOT NULL,
+  `cust_name` text NOT NULL,
+  `cust_fname` text NOT NULL,
+  `cust_mob1` text NOT NULL,
+  `cust_mob2` text NOT NULL,
+  `cust_mob3` text NOT NULL,
+  `cust_add` text NOT NULL,
+  `cust_addofficial` text,
+  `cust_res_type` int(11) NOT NULL,
+  `cust_occupation` text NOT NULL,
+  `cust_salary` text NOT NULL,
+  `cust_pic` text NOT NULL,
+  `cust_addedby` int(11) NOT NULL,
+  `cust_addedon` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer_ls`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee_ls`
+--
+
+CREATE TABLE `employee_ls` (
+  `empl_id` int(11) NOT NULL,
+  `empl_name` varchar(50) NOT NULL,
+  `empl_uname` varchar(20) NOT NULL,
+  `empl_pw` varchar(100) NOT NULL,
+  `empl_role` varchar(10) NOT NULL,
+  `empl_mob1` varchar(15) NOT NULL,
+  `empl_mob2` varchar(15) NOT NULL,
+  `empl_address` varchar(250) NOT NULL,
+  `empl_reference` varchar(100) NOT NULL,
+  `empl_dateofemp` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee_ls`
+--
+
+INSERT INTO `employee_ls` (`empl_id`, `empl_name`, `empl_uname`, `empl_pw`, `empl_role`, `empl_mob1`, `empl_mob2`, `empl_address`, `empl_reference`, `empl_dateofemp`) VALUES
+(1, 'Nafees', 'naf', 'naf123', 'manager', '0346999', '043222', 'kurri road', 'Shafiq', '2010-12-01'),
+(2, 'Tahir', 'Tah', 'tah123', 'admin', '034343', '0328402', 'Booni', '', '2014-01-11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `guarantor_ls`
+--
+
+CREATE TABLE `guarantor_ls` (
+  `g_id` int(11) NOT NULL,
+  `g_cnic` varchar(20) NOT NULL,
+  `g_name` text NOT NULL,
+  `g_fname` text NOT NULL,
+  `g_mob1` text NOT NULL,
+  `g_mob2` text,
+  `g_mob3` text,
+  `g_add` text,
+  `g_addofficial` text,
+  `g_occupation` text,
+  `cust_addedby` int(11) DEFAULT NULL,
+  `cust_addedon` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `guarantor_ls`
+--
+
+--
+
+--
+-- Table structure for table `lease_guarantor_management_ls`
+--
+
+CREATE TABLE `lease_guarantor_management_ls` (
+  `lgm_id` int(11) NOT NULL,
+  `guarantor_id` varchar(255) NOT NULL,
+  `guarantor_realation` varchar(100) NOT NULL,
+  `lease_ls_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lease_guarantor_management_ls`
+--
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lease_leasedproduct_ls`
+--
+
+CREATE TABLE `lease_leasedproduct_ls` (
+  `lp_lease_id` int(11) NOT NULL,
+  `lp_productid` varchar(255) NOT NULL,
+  `lp_pname` text NOT NULL,
+  `lp_pqty` float NOT NULL,
+  `lp_sp` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lease_leasedproduct_ls`
+--
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lease_ls`
+--
+
+CREATE TABLE `lease_ls` (
+  `lease_id` int(11) NOT NULL,
+  `lease_date` date NOT NULL,
+  `lease_custid` varchar(255) NOT NULL,
+  `lease_custname` varchar(50) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `lease_ioff` int(11) NOT NULL,
+  `lease_moff` int(11) NOT NULL,
+  `lease_roff` int(11) NOT NULL,
+  `lease_feetype` varchar(50) NOT NULL,
+  `lease_fee` float NOT NULL,
+  `cash_counter` int(11) DEFAULT NULL,
+  `duration` int(11) DEFAULT NULL,
+  `adv` float DEFAULT NULL,
+  `amount` float DEFAULT NULL,
+  `installment` float DEFAULT NULL,
+  `startdate` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lease_ls`
+--
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_ls`
+--
+
+CREATE TABLE `product_ls` (
+  `p_id` varchar(255) NOT NULL,
+  `p_name` text NOT NULL,
+  `p_made` text NOT NULL,
+  `p_model` text NOT NULL,
+  `p_desc` text NOT NULL,
+  `p_category` int(11) NOT NULL,
+  `addedby` int(11) DEFAULT NULL,
+  `addedon` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_ls`
+--
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_ls_sp`
+--
+
+CREATE TABLE `product_ls_sp` (
+  `p_id` varchar(255) NOT NULL,
+  `p_sp` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_ls_sp`
+--
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchase_ls`
+--
+
+CREATE TABLE `purchase_ls` (
+  `pur_id` varchar(255) NOT NULL,
+  `pur_date` date NOT NULL,
+  `pur_vid` int(11) NOT NULL,
+  `pur_pid` varchar(255) NOT NULL,
+  `pur_qty` float NOT NULL DEFAULT '0',
+  `pur_cp` float NOT NULL,
+  `pur_sp` float NOT NULL,
+  `addedby` int(11) DEFAULT NULL,
+  `addedon` date DEFAULT NULL,
+  `updatedby` int(11) DEFAULT NULL,
+  `updatedon` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `purchase_ls`
+--
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_ls`
+--
+
+CREATE TABLE `users_ls` (
+  `uid` int(11) NOT NULL,
+  `uname` text NOT NULL,
+  `upassword` varchar(50) NOT NULL,
+  `urole` varchar(10) NOT NULL,
+  `uaddedby` int(11) NOT NULL,
+  `uaddedon` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users_ls`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vendor_ls`
+--
+
+CREATE TABLE `vendor_ls` (
+  `vid` int(11) NOT NULL,
+  `v_name` varchar(200) NOT NULL,
+  `v_mob1` text NOT NULL,
+  `v_mob2` text,
+  `v_mob3` text,
+  `v_add` text,
+  `addedby` date DEFAULT NULL,
+  `addedon` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vendor_ls`
+--
+
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `categories_ls`
+--
+ALTER TABLE `categories_ls`
+  ADD PRIMARY KEY (`cid`);
+
+--
+-- Indexes for table `customer_ls`
+--
+ALTER TABLE `customer_ls`
+  ADD PRIMARY KEY (`cust_id`),
+  ADD UNIQUE KEY `cust_cnic` (`cust_cnic`);
+
+--
+-- Indexes for table `employee_ls`
+--
+ALTER TABLE `employee_ls`
+  ADD PRIMARY KEY (`empl_id`);
+
+--
+-- Indexes for table `guarantor_ls`
+--
+ALTER TABLE `guarantor_ls`
+  ADD PRIMARY KEY (`g_id`);
+
+--
+-- Indexes for table `lease_guarantor_management_ls`
+--
+ALTER TABLE `lease_guarantor_management_ls`
+  ADD PRIMARY KEY (`lgm_id`);
+
+--
+-- Indexes for table `lease_ls`
+--
+ALTER TABLE `lease_ls`
+  ADD PRIMARY KEY (`lease_id`);
+
+--
+-- Indexes for table `product_ls`
+--
+ALTER TABLE `product_ls`
+  ADD PRIMARY KEY (`p_id`);
+
+--
+-- Indexes for table `product_ls_sp`
+--
+ALTER TABLE `product_ls_sp`
+  ADD PRIMARY KEY (`p_id`);
+
+--
+-- Indexes for table `users_ls`
+--
+ALTER TABLE `users_ls`
+  ADD PRIMARY KEY (`uid`);
+
+--
+-- Indexes for table `vendor_ls`
+--
+ALTER TABLE `vendor_ls`
+  ADD PRIMARY KEY (`vid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `categories_ls`
+--
+ALTER TABLE `categories_ls`
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+
+--
+-- AUTO_INCREMENT for table `customer_ls`
+--
+ALTER TABLE `customer_ls`
+  MODIFY `cust_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+
+--
+-- AUTO_INCREMENT for table `employee_ls`
+--
+ALTER TABLE `employee_ls`
+  MODIFY `empl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+
+--
+-- AUTO_INCREMENT for table `guarantor_ls`
+--
+ALTER TABLE `guarantor_ls`
+  MODIFY `g_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+
+--
+-- AUTO_INCREMENT for table `lease_guarantor_management_ls`
+--
+ALTER TABLE `lease_guarantor_management_ls`
+  MODIFY `lgm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+
+--
+-- AUTO_INCREMENT for table `lease_ls`
+--
+ALTER TABLE `lease_ls`
+  MODIFY `lease_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+
+--
+-- AUTO_INCREMENT for table `users_ls`
+--
+ALTER TABLE `users_ls`
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+
+--
+-- AUTO_INCREMENT for table `vendor_ls`
+--
+ALTER TABLE `vendor_ls`
+  MODIFY `vid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

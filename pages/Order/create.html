@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+
+  <!-- Required meta tags -->
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  <!-- plugins:css -->
+
+  <link rel="stylesheet" href="../../vendors/feather/feather.css">
+
+  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
+
+  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+
+  <link rel="stylesheet" href="../../vendors/typicons/typicons.css">
+
+  <link rel="stylesheet" href="../../vendors/simple-line-icons/css/simple-line-icons.css">
+
+  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+
+  <!-- for datatable from data tabelfolder-->
+
+
+
+  <link rel="stylesheet" type="text/css" href="../../datatable/jquery.dataTables.min.css">
+
+  <!-- endinject -->
+
+  <!-- Plugin css for this page -->
+
+  <link rel="stylesheet" href="../../vendors/select2/select2.min.css">
+
+  <link rel="stylesheet" href="../../vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+
+  <!-- End plugin css for this page -->
+
+  <!-- inject:css -->
+
+  <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+
+  <!-- endinject -->
+
+  <link rel="shortcut icon" href="../../images/favicon.png" />
+
+</head>
+
+
+
+<body>
+
+  <div class="container-scroller">
+
+    <!-- partial:../../partials/_navbar.html -->
+
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <div class="me-3">
+          <button class="navbar-toggler navbar-toggler align-self-center hhtog" type="button" data-bs-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+        <div>
+          <a class="navbar-brand brand-logo" href="../../pages/dash/">
+            <img src="../../images/logo.svg" alt="logo" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="../../pages/dash/">
+            <img src="../../images/logo-mini.svg" alt="logo" />
+          </a>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+        <ul class="navbar-nav">
+          <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+            <h1 class="welcome-text"><?=$greetings;?>, <span class="text-black fw-bold"><?=$_SESSION["logindetailsshop"]["name"];?></span></h1>
+            <h3 class="welcome-sub-text">Your performance summary </h3> 
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">        
+          <li class="nav-item">
+            <form class="search-form" action="#">
+              <i class="icon-search"></i>
+              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+            </form>
+          </li>
+          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle" src="../../images/person.png" alt="Profile image"> </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="../../img-md rounded-circle" src="../../images/person.png" alt="Profile Image">
+                <p class="mb-1 mt-3 font-weight-semibold"><?=$_SESSION["logindetailsshop"]["name"];?></p>
+                <p class="fw-light text-muted mb-0"></p>
+              </div>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+              
+              <a href="../../logout.php" class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+
+        <?php include "buttons.php"?>
+      </div>
+    </nav>
+
+    <!-- partial -->
+
+    <div class="container-fluid page-body-wrapper">
+
+      <!-- partial:../../partials/_settings-panel.html -->
+
+      <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <div class="me-3">
+          <button class="navbar-toggler navbar-toggler align-self-center hhtog" type="button" data-bs-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+        <div>
+          <a class="navbar-brand brand-logo" href="../../pages/dash/">
+            <img src="../../images/logo.svg" alt="logo" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="../../pages/dash/">
+            <img src="../../images/logo-mini.svg" alt="logo" />
+          </a>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+        <ul class="navbar-nav">
+          <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+            <h1 class="welcome-text"><?=$greetings;?>, <span class="text-black fw-bold"><?=$_SESSION["logindetailsshop"]["name"];?></span></h1>
+            <h3 class="welcome-sub-text">Your performance summary </h3> 
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">        
+          <li class="nav-item">
+            <form class="search-form" action="#">
+              <i class="icon-search"></i>
+              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+            </form>
+          </li>
+          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle" src="../../images/person.png" alt="Profile image"> </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="../../img-md rounded-circle" src="../../images/person.png" alt="Profile Image">
+                <p class="mb-1 mt-3 font-weight-semibold"><?=$_SESSION["logindetailsshop"]["name"];?></p>
+                <p class="fw-light text-muted mb-0"></p>
+              </div>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+              
+              <a href="../../logout.php" class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+
+        <?php include "buttons.php"?>
+      </div>
+    </nav>
+      <!-- partial -->
+
+      <!-- partial:../../partials/_sidebar.html -->
+
+      <<!-- partial:../../partials/_sidebar.html -->
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/dash/">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item nav-category">Invoice</li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/sale/">
+              <i class="menu-icon mdi mdi-sale"></i>
+              <span class="menu-title">Sale</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/purchase/">
+              <i class="menu-icon mdi mdi-cart-plus"></i>
+              <span class="menu-title">Purchase</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/cashaccount/">
+              <i class="menu-icon  mdi mdi-cash-100"></i>
+              <span class="menu-title">Cash Payments</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/payables/">
+              <i class="menu-icon  mdi mdi-cash-100"></i>
+              <span class="menu-title">Payable Invoice</span>
+            </a>
+          </li>
+          <li class="nav-item nav-category">Management</li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/product/">
+              <i class="menu-icon mdi mdi-shopping"></i>
+              <span class="menu-title">Products</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/category/">
+              <i class="menu-icon mdi mdi-file-tree"></i>
+              <span class="menu-title">categories</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/customer/">
+              <i class="menu-icon mdi mdi-account-card-details"></i>
+              <span class="menu-title">Customer</span>
+            </a>
+          </li>
+          <li class="nav-item nav-category">Reports</li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/customer/defaulterreport.php">
+              <i class="menu-icon mdi mdi mdi-target"></i>
+              <span class="menu-title">Defaulter Report</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/purchase/totalpurchases.php">
+              <i class="menu-icon mdi mdi-cart"></i>
+              <span class="menu-title">Purchases Report</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/sale/totalsalereport.php">
+              <i class="menu-icon mdi mdi-sale"></i>
+              <span class="menu-title">Sale Report</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/sale/productsale.php">
+              <i class="menu-icon mdi mdi-sale"></i>
+              <span class="menu-title">Sale Report by Product</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/sale/returnproduct.php">
+              <i class="menu-icon mdi mdi-undo-variant"></i>
+              <span style="color:red"  class="menu-title">Return Sales</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/purchase/returnproduct.php">
+              <i class="menu-icon mdi mdi-undo-variant"></i>
+              <span style="color:red" class="menu-title">Return Purchases</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/sale/returncashpayment.php">
+              <i class="menu-icon mdi mdi-undo-variant"></i>
+              <span class="menu-title">Cancel Cash Payment</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/sale/returnreceivedamount.php">
+              <i class="menu-icon mdi mdi-undo-variant"></i>
+              <span class="menu-title">Cancel Received Amount</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/barcodegen/">
+              <i class="menu-icon mdi mdi-barcode"></i>
+              <span class="menu-title">Generate Barcode</span>
+            </a>
+          </li>
+          <li style="color:Blue; font-weight: bolder;" class="nav-item nav-category">Mutual Fund</li>
+          <li style="color:Blue"  class="nav-item">
+            <a style="color:Blue"  class="nav-link" href="../../pages/mutualfund/">
+              <i style="color:Blue"  class="menu-icon mdi mdi-finance"></i>
+              <span class="menu-title">Mutual Fund</span>
+            </a>
+          </li>
+          <li class="nav-item nav-category">Back Up</li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/backupdb/">
+              <i  class="menu-icon mdi mdi-download"></i>
+              <span class="menu-title">Backup Database</span>
+            </a>
+          </li>
+
+
+        </ul>
+      </nav>
+      <!-- partial -->
+
+      <!-- partial -->
+
+      <div class="main-panel">        
+
+        <div class="content-wrapper">
+
+        <div class="row">
+
+
+
+
+              <div class="col-md-3">
+
+                
+              </div>
+
+            <div class="col-md-6 grid-margin stretch-card">
+
+              <div class="card">
+
+                <div class="card-body">
+
+                  <h4 class="card-title">Products</h4>
+
+                  <p class="card-description">
+
+                    Add product form
+
+                  </p>
+
+                  <form>
+                    <div class="form-group">
+                      <label for="txtCustomerName" class="control-label">Customer Name</label> 
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                          <i class="fa fa-address-book-o"></i>
+                        </div> 
+                        <input id="txtCustomerName" name="txtCustomerName" placeholder="Customer Name..." type="text" required="required" class="form-control"> 
+                        <div class="input-group-addon">SEarch</div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="text" class="control-label">Text Field</label> 
+                      <input id="text" name="text" type="text" class="form-control">
+                    </div> 
+                    <div class="form-group">
+                      <button name="submit" type="submit" class="btn btn-primary pull-right">Submit</button>
+                    </div>
+                  </form>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- content-wrapper ends -->
+
+        <!-- partial:../../partials/_footer.html -->
+
+        <footer class="footer">
+
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
+
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
+
+          </div>
+
+        </footer>
+
+        <!-- partial -->
+
+      </div>
+
+      <!-- main-panel ends -->
+
+    </div>
+
+    <!-- page-body-wrapper ends -->
+
+  </div>
+
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+
+  <script src="../../vendors/js/vendor.bundle.base.js"></script>
+
+  <!-- endinject -->
+
+  <!-- Plugin js for this page -->
+
+  <script src="../../vendors/typeahead.js/typeahead.bundle.min.js"></script>
+
+  <script src="../../vendors/select2/select2.min.js"></script>
+
+  <script src="../../vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
+  <!-- End plugin js for this page -->
+
+  <!-- inject:js -->
+
+  <script src="../../js/off-canvas.js"></script>
+
+  <script src="../../js/hoverable-collapse.js"></script>
+
+  <script src="../../js/template.js"></script>
+
+  <script src="../../js/settings.js"></script>
+
+  <script src="../../js/todolist.js"></script>
+
+  <!-- endinject -->
+
+  <!-- Custom js for this page-->
+
+  <script src="../../js/file-upload.js"></script>
+
+  <script src="../../js/typeahead.js"></script>
+
+  <script src="../../js/select2.js"></script>
+
+  <!-- End custom js for this page-->
+
+</body>
+
+<script src="jquery.js"></script>
+
+<script src="jqajax.js"></script>
+
+<script src="../../datatable/jquery.dataTables.min.js"></script>
+
+</html>
+
